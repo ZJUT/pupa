@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block main %}
+<section>
+	<div class="page-header">
+		<h1>{{name}} <small>{{small_descr}}</small></h1>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div>
+				<legend>下载</legend>
+					<a href="/download.php?id={{id}}"><i
+							class="icon-download-alt"></i>[pt@zjut].{{save_as}}.torrent</a>
+				<p>由 {{ owner.username }} 发布于 {{ added }} 大小: {{size}}
+					bit</p>
+			</div>
+			<div>
+				<legend>简介</legend>
+				{{ descr | raw }}
+			</div>
+		</div>
+		<div class="span4">
+			<div class="well">
+					查看: {{views}}
+
+					评论: {{comments}}
+
+					点击: {{hits}}
+
+					完成: {{times_completed}}
+					
+					同伴: {{leechers}}
+
+					做种: {{seeders}}
+
+					最后活动: {{last_action}}
+			</div>
+			<div class="well">
+				Actions
+			</div>
+			<div class="well">
+				用户评论
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+
+
+

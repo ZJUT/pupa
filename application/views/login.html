@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+  <div class="row">
+    <div class="span8 offset4">
+      <form action="/ci/user/login" method="post" class="form-horizontal">
+        <fieldset>
+          <legend> Login: </legend>
+          <div class="control-group">
+            <label class="control-label" for="username">Username :</label>
+            <div class="controls">
+              <input type="text" name="username" class="input-xlarge" id="input-username">
+              <p class="help-block"></p>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="password">Password :</label>
+              <div class="controls">
+                <input type="password" name="password" class="input-xlarge" id="input-password">
+                <p class="help-block"></p>
+              </div>
+            </div>
+            <div class="form-actions">
+              <input type="submit" class="btn btn-primary" value="Login" />
+              <input type="reset" class="btn" value="Reset" />
+            </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="span4"></div>
+
+  </div>
+{% endblock %}
+
