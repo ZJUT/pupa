@@ -45,13 +45,21 @@
 | the active record class
 */
 
+#
+# load db config from NexusPHP's Configuration
+#
+if( ! defined('NEXUSPATH') )
+  require_once "config.php";
+
+include NEXUSPATH . 'config/allconfig.php';
+
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
-$db['default']['database'] = '';
+$db['default']['hostname'] = $BASIC['mysql_host'];
+$db['default']['username'] = $BASIC['mysql_user'];
+$db['default']['password'] = $BASIC['mysql_pass'];
+$db['default']['database'] = $BASIC['mysql_db'];
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -63,7 +71,6 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

@@ -1,4 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/*
+ * This project is currently based on NexusPHP.
+ */
+define('NEXUSPATH', '/Users/Kebot/Codes/pt/hudbt/');
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +18,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/ci/';
+$config['base_url']	= 'http://pt.local/ci/';
 
 /*
 |--------------------------------------------------------------------------
@@ -328,9 +332,12 @@ $config['compress_output'] = FALSE;
 | regarding date handling.
 |
 */
+if( ! ini_get('date.timezone') )
+{
+   date_default_timezone_set('Asia/Shanghai');
+}
+
 $config['time_reference'] = 'local';
-
-
 /*
 |--------------------------------------------------------------------------
 | Rewrite PHP Short Tags
