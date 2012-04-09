@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block header_extra %}
+  <script src="/ci/static/lib/jquery-1.7.2.js"></script>
+  <script src="/ci/static/js/editor.js"></script>
+{% endblock %}
+{% block main %}
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <form action="/takeedit.php" method="post" class="form-horizontal">
+          <legend> 编辑: </legend>
+          <fieldset>
+            {% for group in options %}
+              <div class="control-group">
+                <label for="{{group.name}}" class="control-label">{{group.label}}</label>
+                <div class="controls">
+                  {% if group.type == 'select' %}
+                    <select name="{{group.name}}">
+                      {% if not group.no_default %}
+                        <option value="0">请选择</option>
+                      {% endif %}
+                      {% for option in group.options %}
+                      <option value="{{option.id}}" {% if option.id == group.value %}
+                        selected="selected"{% endif %}>{{option.name}}</option>
+                      {% endfor %}
+                    </select>
+                  {% else %}
+                  <input type="{{group.type}}" value="{{group.value}}"
+                  {% if group.checked %}checked="checked"{% endif %}class="input input-xlarge" name="{{group.name}}" />
+                  {% endif %}
+                  {% if group.help %}
+                    <p class="help-block">{{group.help}}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+              <div class="control-group">
+                <label for="descr" class="control-label">简介</label>
+                <div class="controls">
+                  <textarea id="input-descr" rows="30" class="input-xlarge span6" name="descr">{{data.descr}}</textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" class="btn btn-primary"></input>
+                <input type="reset" class="btn btn-primary"></input>
+              </div>
+           </fieldset>
+          <input name="id" type="hidden" value="{{data.id}}" />
+          <input name="nfoaction" type="hidden" value="keep" />
+          <input name="promotionuntil" type="hidden" value="{{ "now" | date("yyyy-mm-dd hh:mm:ss") }}" />
+          <input name="returnto" type="hidden" value="/ci/torrent/detail/{{data.id}}" />
+        </form>
+      </div> <!-- end block one -->
+    </div>
+  </div>
+{% endblock %}

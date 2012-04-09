@@ -51,15 +51,20 @@
 if( ! defined('NEXUSPATH') )
   require_once "config.php";
 
-include NEXUSPATH . 'config/allconfig.php';
-
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = $BASIC['mysql_host'];
-$db['default']['username'] = $BASIC['mysql_user'];
-$db['default']['password'] = $BASIC['mysql_pass'];
-$db['default']['database'] = $BASIC['mysql_db'];
+//include NEXUSPATH . 'config/allconfig.php';
+//$db['default']['hostname'] = $BASIC['mysql_host'];
+//$db['default']['username'] = $BASIC['mysql_user'];
+//$db['default']['password'] = $BASIC['mysql_pass'];
+//$db['default']['database'] = $BASIC['mysql_db'];
+
+//$db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '';
+//$db['default']['database'] = 'pt';
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
