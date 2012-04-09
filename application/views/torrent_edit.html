@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="span8">
-        <form action="/takeedit.php" class="form-horizontal">
+        <form action="/takeedit.php" method="post" class="form-horizontal">
           <legend> 编辑: </legend>
           <fieldset>
             {% for group in options %}
@@ -16,7 +16,9 @@
                 <div class="controls">
                   {% if group.type == 'select' %}
                     <select name="{{group.name}}">
-                      <option value="0">请选择</option>
+                      {% if not group.no_default %}
+                        <option value="0">请选择</option>
+                      {% endif %}
                       {% for option in group.options %}
                       <option value="{{option.id}}" {% if option.id == group.value %}
                         selected="selected"{% endif %}>{{option.name}}</option>
@@ -43,7 +45,10 @@
                 <input type="reset" class="btn btn-primary"></input>
               </div>
            </fieldset>
-          <input name="returnto" type="hidden" value="/ci/torrent/detail/{{id}}" />
+          <input name="id" type="hidden" value="{{data.id}}" />
+          <input name="nfoaction" type="hidden" value="keep" />
+          <input name="promotionuntil" type="hidden" value="{{ "now" | date("yyyy-mm-dd hh:mm:ss") }}" />
+          <input name="returnto" type="hidden" value="/ci/torrent/detail/{{data.id}}" />
         </form>
       </div> <!-- end block one -->
     </div>

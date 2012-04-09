@@ -41,18 +41,18 @@
           'value' => $data->small_descr,
           'help' => '',
         ),
-        //array(
-          //'label' => 'imdb url',
-          //'name' => 'url',
-          //'type' => 'text',
-          //'value' => $data->url,
-          //'help' => '',
-        //),
+        array(
+          'label' => 'imdb url',
+          'name' => 'url',
+          'type' => 'text',
+          'value' => $data->url,
+          'help' => '',
+        ),
         array(
           'label' => 'category',
           'name' => 'type',
           'type' => 'select',
-          'value' => $data->type,
+          'value' => $data->category,
           'help' => '',
           'options' => $this->Options->load('categories')->get(),
         ),
@@ -82,7 +82,7 @@
         ),
         array(
           'label' => 'Teams',
-          'name' => 'teams_sel',
+          'name' => 'team_sel',
           'type' => 'select',
           'value' => $data->team,
           'help' => '',
@@ -95,6 +95,78 @@
           'value' => '1',
           'checked' => $data->visible == 'yes',
           'help' => '',
+        ),
+        array(
+          'label' => '不要在浏览页面显示用户名',
+          'name' => 'anonymous',
+          'type' => 'checkbox',
+          'value' => '1',
+          'checked' => $data->anonymous == 'yes',
+          'help' => '',
+        ),
+        array(
+          'label' => '禁止',
+          'name' => 'banned',
+          'type' => 'checkbox',
+          'value' => 'yes',
+          'checked' => $data->banned == 'yes',
+          'help' => '',
+        ),
+        array(
+          'no_default' => true,
+          'label' => '促销种子',
+          'name' => 'sel_spstate',
+          'type' => 'select',
+          'value' => $data->sp_state,
+          'help' => '',
+          'options' => array(
+            array(
+              'id'=> 1,
+              'name' => '普通',
+            ),
+            array(
+              'id'=> 2,
+              'name' => '免费',
+            ),
+            array(
+              'id'=> 3,
+              'name' => '2x',
+            ),
+            array(
+              'id'=> 4,
+              'name' => '2x 免费',
+            ),
+            array(
+              'id'=> 5,
+              'name' => '50%',
+            ),
+            array(
+              'id'=> 6,
+              'name' => '2x 50%',
+            ),
+            array(
+              'id'=> 7,
+              'name' => '30%',
+            ),
+          ),
+        ),
+        array(
+          'no_default' => true,
+          'label' => '种子位置',
+          'name' => 'sel_posstate',
+          'type' => 'select',
+          'value' => $data->pos_state,
+          'help' => '',
+          'options' => array(
+            array(
+              'id'=> 0,
+              'name' => '普通',
+            ),
+            array(
+              'id'=> 1,
+              'name' => '置顶',
+            ),
+          ),
         ),
       );
       //print_r($this->Options->load('codecs')->get());

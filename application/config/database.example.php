@@ -60,10 +60,10 @@ $active_record = TRUE;
 //$db['default']['password'] = $BASIC['mysql_pass'];
 //$db['default']['database'] = $BASIC['mysql_db'];
 
-$db['default']['hostname'] = '210.32.200.91';
-$db['default']['username'] = 'yaofur';
-$db['default']['password'] = '123456';
-$db['default']['database'] = 'pt';
+//$db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '';
+//$db['default']['database'] = 'pt';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
