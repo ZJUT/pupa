@@ -4,12 +4,6 @@
   <script src="/ci/static/js/editor.js"></script>
 {% endblock %}
 {% block main %}
-<!--
-  <div id="descr_editor" class="editor_wrapper">
-    <div id="editor">{{ data.descr }}</div>
-    <div class="well" id="output">Output</div>
-  </div>
--->
   <div class="container">
     <div class="row">
       <div class="span8">
@@ -43,6 +37,10 @@
                 <div class="controls">
                   <textarea id="input-descr" rows="30" class="input-xlarge span6" name="descr">{{data.descr}}</textarea>
                 </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" class="btn btn-primary"></input>
+                <input type="reset" class="btn btn-primary"></input>
               </div>
            </fieldset>
           <input name="returnto" type="hidden" value="/ci/torrent/detail/{{id}}" />
